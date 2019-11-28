@@ -1,0 +1,11 @@
+%Train a new network and create a ghost of the network at 0% of the training process,
+%5% training, 15% training, 30% training,60% training, and 100% training.
+%Produce contrast, noise and rotation profiles using the trained (and untrained) neural
+%networks. Show the graph and then ask the user if they wish to save the
+%file, and under which name. Save the file as jpg in a subfolder called output.
+%In the case of noise_profile visualization, visualize the evolution of the
+%network for each of the ghost networks
+digitnn_percent
+rotation_profile(NN);
+contrast_profile(NN);
+noise_profile({NN0,NN5,NN15,NN30,NN60,NN},{'baseline','5% training','15% training','30% training','60% training','100% training'});

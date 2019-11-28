@@ -1,0 +1,14 @@
+% Creates a desired number of networks using a random number of hidden units
+% training sessions and epochs. Random ranges are adjustable below
+nnn = 30; %Number of neural networks to produce
+NNS = {}; %Empity cell that will store the networks
+LEG = {}; %Empity legend cell
+for i=1:nnn
+    nhid = randi([2,70]);
+    nses = randi([2,40]);
+    nepochs= randi([50,1300]);
+    %nses = 2; uncomment to speed up process (for editing)
+    NNS{i} = digitnn_manyNN(nhid,nses,nepochs); %Creates one single network with randomized number of hidden units sessions and epochs
+    LEG{i} = strcat('Network ',num2str(i),':','Hidden:',num2str(nhid),'Sessions:',num2str(nses),'Epochs:',num2str(nepochs)); % Plots results
+end
+noise_profile(NNS,LEG);
